@@ -20,7 +20,8 @@ app.use(bodyParser.json());
 var token = process.env.TOKEN || 'token';
 var received_updates = [];
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
+  console.log('req query', req.query);
   // console.log(req);
   // res.send('<pre>' + JSON.stringify(received_updates, null, 2) + '</pre>');
   // return all back to the client
@@ -31,7 +32,7 @@ app.get('/', function(req, res) {
 
 });
 
-app.get(['/facebook', '/instagram'], function(req, res) {
+app.get(['/facebook', '/instagram'], function (req, res) {
   if (
     req.query['hub.mode'] == 'subscribe' &&
     req.query['hub.verify_token'] == token
@@ -42,7 +43,7 @@ app.get(['/facebook', '/instagram'], function(req, res) {
   }
 });
 
-app.post('/facebook', function(req, res) {
+app.post('/facebook', function (req, res) {
   console.log('Facebook request body:', req.body);
 
   if (!req.isXHubValid()) {
@@ -57,7 +58,7 @@ app.post('/facebook', function(req, res) {
   res.sendStatus(200);
 });
 
-app.post('/instagram', function(req, res) {
+app.post('/instagram', function (req, res) {
   console.log('Instagram request body:');
   console.log(req.body);
   // Process the Instagram updates here
