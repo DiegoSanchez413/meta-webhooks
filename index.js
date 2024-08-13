@@ -26,7 +26,11 @@ app.get('/', function (req, res) {
   // res.send('<pre>' + JSON.stringify(received_updates, null, 2) + '</pre>');
   // return all back to the client
 
-  return res.json(req.query);
+
+  // access to challenge
+
+  
+  return res.json(req.query.hub.challenge);
 
 
 
