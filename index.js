@@ -29,8 +29,9 @@ app.get('/', function (req, res) {
 
   // access to challenge
 
-  
-  return res.json(req.query.challenge);
+  console.log('challenge', req.query['hub.challenge']);
+
+  return res.json(req.query.hub);
 
 
 
