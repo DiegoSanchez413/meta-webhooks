@@ -32,10 +32,7 @@ app.get('/', function (req, res) {
   console.log('challenge', req.query['hub.challenge']);
 
   // return res.json(req.query['hub.challenge']);
-  return req.query['hub.challenge'];
-
-
-
+  return req.query['hub.challenge'] || [];
 });
 
 app.get(['/facebook', '/instagram'], function (req, res) {
