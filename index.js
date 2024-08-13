@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
 
   console.log('challenge', req.query['hub.challenge']);
 
-  return res.json(req.query.hub);
+  return res.json(req.query['hub.challenge']);
 
 
 
