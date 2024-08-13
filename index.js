@@ -22,15 +22,8 @@ var received_updates = [];
 
 app.get('/', function(req, res) {
   console.log(req);
-  console.log('body', JSON.stringify(req.body));
   res.send('<pre>' + JSON.stringify(received_updates, null, 2) + '</pre>');
 });
-
-// verify fb app
-// app.get('/', function (req, res) {
-//   const challenge = req.query['hub.challenge'];
-//   res.send(challenge);
-// });
 
 app.get(['/facebook', '/instagram'], function(req, res) {
   if (
