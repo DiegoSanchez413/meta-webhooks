@@ -30,7 +30,7 @@ app.get('/', function (req, res) {
   // access to challenge
 
   
-  return res.json(req.query.hub.challenge);
+  return res.json(req.query.challenge);
 
 
 
