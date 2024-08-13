@@ -22,18 +22,16 @@ var received_updates = [];
 
 app.get('/', function (req, res) {
   console.log('req query', req.query);
-  // console.log(req);
-  // res.send('<pre>' + JSON.stringify(received_updates, null, 2) + '</pre>');
-  // return all back to the client
 
+  // Access the challenge parameter
+  const challenge = req.query['hub.challenge'];
 
-  // access to challenge
+  console.log('challenge', challenge);
 
-  console.log('challenge', req.query['hub.challenge']);
-
-  // return res.json(req.query['hub.challenge']);
-  return req.query['hub.challenge'] || [];
+  // Respond with the challenge value as plain text
+  res.send(challenge);
 });
+
 
 app.get(['/facebook', '/instagram'], function (req, res) {
   if (
